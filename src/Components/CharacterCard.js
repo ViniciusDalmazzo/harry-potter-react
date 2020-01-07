@@ -5,6 +5,10 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
+
+import green from "@material-ui/core/colors/green";
+import { fade } from "@material-ui/core/styles/colorManipulator";
 
 export default function CharacterCard({ character }) {
 
@@ -22,9 +26,8 @@ export default function CharacterCard({ character }) {
                 <Typography gutterBottom variant="h5" component="h2">
                     {character.name}
                 </Typography>
-                <Typography>
-                    {character.house}
-                </Typography>
+
+                <Chip color="primary" variant="raised" label={character.house} />
             </CardContent>
 
         </Card>
@@ -56,9 +59,5 @@ const useStyles = makeStyles(theme => ({
     },
     cardContent: {
         flexGrow: 1,
-    },
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6),
     },
 }));

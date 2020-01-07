@@ -19,17 +19,15 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+import AddIcon  from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+
 export default function Character() {
 
   const classes = useStyles();
 
-  const [age, setAge] = React.useState('');
   const [personagens, setPersonagens] = useState([]);
   const [modalFormAddCharacter, setModalFormAddCharacter] = useState(false);
-
-  const handleChange = event => {
-    setAge(event.target.value);
-  };
 
   useEffect(async () => {
 
@@ -49,19 +47,12 @@ export default function Character() {
   };
 
   return (
-    <Container maxWidth="md">
 
-      <Box pt={6}></Box>
+    <Container className={classes.cardGrid} maxWidth="md">
 
-      <div>
-        <Grid container spacing={2} justify="center" onClick={handleOpen}>
-          <Grid item>
-            <Button variant="contained" color="primary">
-              Adicionar um personagem
-                  </Button>
-          </Grid>
-        </Grid>
-      </div>
+      <Fab onClick={handleOpen} className={classes.fab} color="primary">
+        <AddIcon />
+       </Fab>
 
       <Grid container spacing={4} >
         {personagens.map(p => (
@@ -74,7 +65,7 @@ export default function Character() {
       <Box pt={6}></Box>
 
       <Dialog open={modalFormAddCharacter} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Adicionar um novo personagem</DialogTitle>
+        <DialogTitle id="form-dialog-title">Novo personagem</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -83,27 +74,32 @@ export default function Character() {
             label="Nome"
             type="text"
             fullWidth
+            required
           />
           <FormControl className={classes.formControl}>
             <InputLabel id="demo-controlled-open-select-label">Casa</InputLabel>
             <Select
-              labelId="demo-controlled-open-select-label"
-              id="demo-controlled-open-select"
-              value={age}
-              onChange={handleChange}
-              fullWidth 
+              fullWidth
+              required
             >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              <MenuItem value="grifnoria">Grifinória</MenuItem>
+              <MenuItem value="sonserina">Sonserina</MenuItem>
+              <MenuItem value="corvinal">Corvinal</MenuItem>
+              <MenuItem value="lufa-lufa">Lufa-Lufa</MenuItem>
             </Select>
           </FormControl>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="name"
+            label="URL Imagem"
+            type="text"
+            fullWidth
+            required
+          />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="secondary">
             Cancelar
           </Button>
           <Button onClick={handleClose} color="primary">
@@ -126,5 +122,14 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     margin: 0,
     width: '100%'
+  },
+  fab: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
   },
 }));
