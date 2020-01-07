@@ -15,6 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Box from '@material-ui/core/Box';
 
 import HomeIcon from '@material-ui/icons/Home';
 import HelpIcon from '@material-ui/icons/Help';
@@ -51,10 +52,10 @@ export default function PersistentDrawerLeft() {
                         className={clsx(classes.menuButton, open && classes.hide)}
                     >
                         <MenuIcon />
+                        <Box pl={3}/>
+                        <Typography>Harry Potter</Typography>
                     </IconButton>
-                    <Typography variant="h6" noWrap>
-                        Harry Potter
-          </Typography>
+
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -73,27 +74,27 @@ export default function PersistentDrawerLeft() {
                 </div>
                 <Divider />
                 <List>
-                <ListItem button key="Inicio">
-                        <ListItemIcon><HomeIcon/></ListItemIcon>
+                    <ListItem button key="Inicio">
+                        <ListItemIcon><HomeIcon /></ListItemIcon>
                         <ListItemText primary="Inicio" />
                     </ListItem>
                 </List>
-                <ListItem button key="Players">
-                        <ListItemIcon><PeopleIcon/></ListItemIcon>
-                        <ListItemText primary="Personagens" />
-                    </ListItem>
-                    <ListItem button key="Players">
-                        <ListItemIcon><PeopleIcon/></ListItemIcon>
-                        <ListItemText primary="Casas" />
-                    </ListItem>
-                    <ListItem button key="Players">
-                        <ListItemIcon><PeopleIcon/></ListItemIcon>
-                        <ListItemText primary="Feitiços" />
-                    </ListItem>
+                <ListItem button key="Personagens">
+                    <ListItemIcon><PeopleIcon /></ListItemIcon>
+                    <ListItemText primary="Personagens" />
+                </ListItem>
+                <ListItem button key="Casas">
+                    <ListItemIcon><PeopleIcon /></ListItemIcon>
+                    <ListItemText primary="Casas" />
+                </ListItem>
+                <ListItem button key="Feitiços">
+                    <ListItemIcon><PeopleIcon /></ListItemIcon>
+                    <ListItemText primary="Feitiços" />
+                </ListItem>
                 <Divider />
                 <List>
                     <ListItem button key="Ajuda">
-                        <ListItemIcon><HelpIcon/></ListItemIcon>
+                        <ListItemIcon><HelpIcon /></ListItemIcon>
                         <ListItemText primary="Ajuda" />
                     </ListItem>
                 </List>
