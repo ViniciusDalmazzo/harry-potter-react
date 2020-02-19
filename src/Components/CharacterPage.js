@@ -31,7 +31,7 @@ export default function Character() {
 
   useEffect(async () => {
 
-    const response = await fetch('http://localhost:3001/api/v1/characteres');
+    const response = await fetch('http://localhost:3000/Characters');
     const data = await response.json();
 
     setPersonagens(data);
